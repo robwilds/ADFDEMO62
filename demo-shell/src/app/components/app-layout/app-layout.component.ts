@@ -32,7 +32,9 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
     private onDestroy$ = new Subject<boolean>();
 
     links: Array<any> = [
+        
         { href: '/home', icon: 'home', title: 'APP_LAYOUT.HOME' },
+        { href: '/contracts', icon: 'library_books', title: 'Contracts' },
         {
             href: '/extensions', icon: 'extension', title: 'Extensions', children: [
                 { href: '/extensions/document-list/presets', icon: 'extension', title: 'Document List' }
