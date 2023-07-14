@@ -115,6 +115,7 @@ import { setupAppNotifications } from './services/app-notifications-factory';
 import { AppNotificationsService } from './services/app-notifications.service';
 import { SearchFilterChipsComponent } from './components/search/search-filter-chips.component';
 import { UserInfoComponent } from './components/app-layout/user-info/user-info.component';
+import { Dbsearch2Module } from './components/dbsearch2/dbsearch2.module';
 
 registerLocaleData(localeFr);
 registerLocaleData(localeDe);
@@ -153,7 +154,8 @@ registerLocaleData(localeSv);
         ThemePickerModule,
         NgChartsModule,
         AppCloudSharedModule,
-        MonacoEditorModule.forRoot()
+        MonacoEditorModule.forRoot(),
+        Dbsearch2Module
     ],
     declarations: [
         AppComponent,
