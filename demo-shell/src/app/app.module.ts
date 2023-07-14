@@ -116,7 +116,7 @@ import { AppNotificationsService } from './services/app-notifications.service';
 import { SearchFilterChipsComponent } from './components/search/search-filter-chips.component';
 import { UserInfoComponent } from './components/app-layout/user-info/user-info.component';
 import { Dbsearch2Module } from './components/dbsearch2/dbsearch2.module';
-import { ContractsModule } from './contracts/contracts.module';
+import { ContractsComponent } from './contracts/contracts/contracts.component';
 
 
 registerLocaleData(localeFr);
@@ -158,7 +158,7 @@ registerLocaleData(localeSv);
         AppCloudSharedModule,
         MonacoEditorModule.forRoot(),
         Dbsearch2Module,
-        ContractsModule
+        //ContractsModule
     ],
     declarations: [
         AppComponent,
@@ -212,7 +212,8 @@ registerLocaleData(localeSv);
         CustomWidgetComponent,
         ProcessCloudLayoutComponent,
         ServiceTaskListCloudDemoComponent,
-        SearchFilterChipsComponent
+        SearchFilterChipsComponent,
+        ContractsComponent
     ],
     providers: [
         { provide: AppConfigService, useClass: DebugAppConfigService }, // not use this service in production
