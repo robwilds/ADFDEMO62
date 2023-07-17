@@ -9,31 +9,55 @@
             <mat-divider [vertical]="true"></mat-divider>
 
             <div style="padding: 0 12px; flex: 65%">
-                <adf-search-filter-chips></adf-search-filter-chips>
+                <adf-search-filter-chips [showContextFacets]=false></adf-search-filter-chips>
             </div>
 
             <mat-icon adf-reset-search matTooltip="reset" style="padding-right: 5px;">refresh</mat-icon>
 
-            <adf-search-sorting-picker style="width: 240px"></adf-search-sorting-picker>
+            <!--adf-search-sorting-picker style="width: 240px"></adf-search-sorting-picker-->
         </div>
         <app-files-component
             [showHeader]="showHeader"
             [sorting]="sorting"
             [sortingMode]="'server'"
-            [showRecentFiles]="false"
+            [showRecentFiles]="true"
             [showSitePicker]="false"
-            [showSettingsPanel]="false"
+            [showSettingsPanel]="true"
             [currentFolderId]="null"
             [nodeResult]="$any(data)"
-            [disableDragArea]="true"
+            [disableDragArea]="false"
             [pagination]="pagination"
             [searchTerm]="searchedWord"
+            (nodeClick)="nodeClicked($event)"
             (changedPageSize)="onRefreshPagination($event)"
             (changedPageNumber)="onRefreshPagination($event)"
             (turnedNextPage)="onRefreshPagination($event)"
             (loadNext)="onRefreshPagination($event)"
             (turnedPreviousPage)="onRefreshPagination($event)"
             (deleteElementSuccess)="onDeleteElementSuccess()">
+            <data-columns>
+                <data-column key="$thumbnail" type="image"></data-column>
+                <data-column
+                    title="Name" 
+                    key="name" 
+                    
+                    class="full-width ellipsis-cell">
+                </data-column>
+                <data-column
+                    title="Created By" 
+                    key="createdByUser.displayName"
+                    
+                    class="desktop-only">
+                </data-column>
+                <data-column
+                    title="Created On" 
+                    key="createdAt" 
+                    type="date" 
+                    format="medium"
+                    
+                    class="desktop-only">
+                </data-column>
+            </data-columns>
         </app-files-component>
     </div>
 </div>

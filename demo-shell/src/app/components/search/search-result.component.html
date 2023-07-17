@@ -16,14 +16,15 @@
         </div>
         <app-files-component
             [showHeader]="showHeader"
+            [headerFilters]="true"
             [sorting]="sorting"
             [sortingMode]="'server'"
-            [showRecentFiles]="false"
+            [showRecentFiles]="true"
             [showSitePicker]="false"
             [showSettingsPanel]="false"
-            [currentFolderId]="null"
+            [currentFolderId]="'3970f37d-018c-46f1-b3ee-d276fb4665ad'"
             [nodeResult]="$any(data)"
-            [disableDragArea]="true"
+            [disableDragArea]="false"
             [pagination]="pagination"
             [searchTerm]="searchedWord"
             (changedPageSize)="onRefreshPagination($event)"
