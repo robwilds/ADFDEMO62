@@ -1,1 +1,48 @@
-<p>contracts works yada yada!</p>
+<mat-tab-group>
+  <mat-tab label="CONTRACT SEARCH">
+    
+    <app-search-filter-chips></app-search-filter-chips>
+    <adf-content-metadata-card
+    [displayEmpty]="false"
+    [toggleDisplayProperties]="displayDefaultProperties"
+    [preset]="'*'"
+    [node]="node">
+</adf-content-metadata-card>
+  
+  </mat-tab>
+  
+  <mat-tab label="CREATE CONTRACT">
+
+    <adf-apps (appClick)="onAppClicked($event)"
+    [filtersAppId]="[ 
+        {name : 'Invoice Processing'}]"
+    ></adf-apps>
+
+  </mat-tab>
+  
+  <mat-tab label="UTILS">
+
+    <adf-breadcrumb root="APP.PERSONAL-FILES" [target]="documentList" [folderNode]="documentList.folderNode">
+    </adf-breadcrumb>
+    <adf-document-list 
+            #documentList      
+            [currentFolderId]="'3970f37d-018c-46f1-b3ee-d276fb4665ad'"
+          [contextMenuActions]="true"
+          [contentActions]="true"
+          [maxItems]="30"
+          [locationFormat]="//files"
+          [selectionMode]="null"
+          (preview)="showFile($event)"
+          >
+        </adf-document-list>
+
+
+  </mat-tab>
+</mat-tab-group>
+
+
+<!-- <h1>CONTRACT VIEW</h1>
+
+
+
+ -->
