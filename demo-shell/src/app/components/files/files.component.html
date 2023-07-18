@@ -241,7 +241,8 @@
                 (folderChange)="onFolderChange($event)"
                 (permissionError)="handlePermissionError($event)"
                 (name-click)="documentList.onNodeDblClick($any($event).detail?.node)"
-                (filterSelection)="onFilterSelected($event)">
+                (filterSelection)="onFilterSelected($event)"
+                (node-click)="nodeclick(documentList.selection[0].entry.id)">
 
                 <adf-custom-no-permission-template *ngIf="enableCustomPermissionMessage">
                     <h1>You don't have permissions</h1>

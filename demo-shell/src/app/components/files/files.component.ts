@@ -814,4 +814,10 @@ export class FilesComponent implements OnInit, OnChanges, OnDestroy {
         previewConfig['fileAutoDownloadSizeThresholdInMB'] = this.fileAutoDownloadSizeThresholdInMB;
     }
 
+    nodeclick(nodeid)
+    {
+        console.log("nodeclicked in doc list - >",nodeid)
+        this.showVersions = true
+    }
+
 }
