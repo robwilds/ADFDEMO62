@@ -242,7 +242,8 @@
                 (permissionError)="handlePermissionError($event)"
                 (name-click)="documentList.onNodeDblClick($any($event).detail?.node)"
                 (filterSelection)="onFilterSelected($event)"
-                (node-click)="nodeclick(documentList.selection[0].entry.id)">
+                (node-click)="nodeclick(documentList.selection[0].entry.id)"
+                (node-unselect)="nodeUnselect()">
 
                 <adf-custom-no-permission-template *ngIf="enableCustomPermissionMessage">
                     <h1>You don't have permissions</h1>
@@ -448,6 +449,7 @@
                 </content-actions>
             </adf-document-list>
                 </div>
+
             <adf-pagination
                 #standardPagination
                 *ngIf="!infiniteScrolling"
@@ -464,7 +466,15 @@
                 [loading]="documentList.loading">
                 {{ 'ADF-DOCUMENT-LIST.LAYOUT.LOAD_MORE' | translate }}
             </adf-infinite-pagination>
+            <div class="adf-alfresco-viewer">
+            <adf-alfresco-viewer class="adf-alfresco-viewer"
+            [(showViewer)]="showViewer"
+            [overlayMode]="false"
+            [nodeId]="nodeId">
+            </adf-alfresco-viewer>
+        </div>
         </adf-upload-drag-area>
+
 
         <adf-info-drawer-layout *ngIf="showVersions" class="app-manage-versions-sidebar">
             <div info-drawer-content>
@@ -501,6 +511,7 @@
                     </adf-info-drawer-tab>
                 </adf-info-drawer>
             </div>
+            
         </adf-info-drawer-layout>
     </div>
 </div>
@@ -759,3 +770,4 @@
         </mat-form-field>
     </div>
 </div>
+

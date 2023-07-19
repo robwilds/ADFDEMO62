@@ -96,6 +96,8 @@ const DEFAULT_FOLDER_TO_SHOW = '-my-';
 })
 export class FilesComponent implements OnInit, OnChanges, OnDestroy {
 
+
+    
     protected onDestroy$ = new Subject<boolean>();
 
     errorMessage: string = null;
@@ -242,12 +244,13 @@ export class FilesComponent implements OnInit, OnChanges, OnDestroy {
     stickyHeader: boolean;
     preselectNodes: boolean;
     warnOnMultipleUploads = false;
-    thumbnails = false;
+    thumbnails = true;
     noHeaderMode = ShowHeaderMode.Never;
     enableCustomPermissionMessage = false;
     enableMediumTimeFormat = false;
     displayEmptyMetadata = false;
     hyperlinkNavigation = false;
+    maxItems = 5;
 
     selectedNodes = [];
 
@@ -274,8 +277,13 @@ export class FilesComponent implements OnInit, OnChanges, OnDestroy {
                 private contentMetadataService: ContentMetadataService,
                 private sharedLinksApiService: SharedLinksApiService,
                 private dialogAspectListService: DialogAspectListService,
-                private nodeService: NodesApiService) {
+                private nodeService: NodesApiService) {    
+
+                    this.preference.paginationSize = 5;
+                    this.maxItems = 5;
     }
+
+    
 
     showFile(event) {
         const entry = event.value.entry;
@@ -818,6 +826,14 @@ export class FilesComponent implements OnInit, OnChanges, OnDestroy {
     {
         console.log("nodeclicked in doc list - >",nodeid)
         this.showVersions = true
+        this.showViewer = true
+        this.nodeId = nodeid
+    }
+
+    nodeUnselect()
+    {
+        this.showVersions = false
+        this.showViewer = false
     }
 
 }
