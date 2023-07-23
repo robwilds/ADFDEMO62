@@ -466,6 +466,9 @@
                 [loading]="documentList.loading">
                 {{ 'ADF-DOCUMENT-LIST.LAYOUT.LOAD_MORE' | translate }}
             </adf-infinite-pagination>
+            <adf-tree-view-list [nodeId]="nodeId" 
+            (nodeClicked)="onTreeClick($event)">
+            </adf-tree-view-list>
             <div class="adf-alfresco-viewer">
             <adf-alfresco-viewer class="adf-alfresco-viewer"
             [(showViewer)]="showViewer"

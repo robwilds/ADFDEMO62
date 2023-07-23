@@ -836,4 +836,9 @@ export class FilesComponent implements OnInit, OnChanges, OnDestroy {
         this.showViewer = false
     }
 
+    onTreeClick(event: any)
+    {
+        console.log("event from tree click ->",event)
+    }
+
 }

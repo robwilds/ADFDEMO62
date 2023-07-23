@@ -45,3 +45,14 @@ div.app-search-results-container {
         width: 100%;
     }
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.formwrapper {
+    width: 600px;
+    height: 300px;
+
+}
