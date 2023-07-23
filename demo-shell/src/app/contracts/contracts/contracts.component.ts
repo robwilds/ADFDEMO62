@@ -7,6 +7,8 @@ import { SearchForm, SearchQueryBuilderService } from '@alfresco/adf-content-ser
 //import { ProcessService, ProcessInstance, ProcessInstanceVariable,ProcessDefinitionRepresentation, ProcessFilterParamRepresentationModel, TaskDetailsModel } from '@alfresco/adf-process-services';
 import { AppDefinitionRepresentationModel } from '@alfresco/adf-process-services';
 import { Router } from '@angular/router';
+import {  FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'contracts',
@@ -14,6 +16,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./contracts.component.css']
 })
 export class ContractsComponent implements OnInit {
+  
+  panelOpenState = false;
+
+  public userForm:FormGroup; // variable is created of type FormGroup is created
+  
+  first_name: string = ""; // Variable is created to show the input value below the button
 
 
   @ViewChild(FileViewComponent) fileViewComponent;
@@ -22,8 +30,16 @@ export class ContractsComponent implements OnInit {
   
   @ViewChild(SearchFilterChipsComponent) search:SearchFilterChipsComponent;
 
-  constructor(private queryBuilder: SearchQueryBuilderService, private router: Router) {}
+  constructor(private queryBuilder: SearchQueryBuilderService, private router: Router, private fb: FormBuilder) {
 
+     // Form element defined below
+     this.userForm = this.fb.group({
+      first_name: ''});
+}
+
+setValue() {
+  this.first_name=this.userForm.get('first_name')?.value; // input value retrieved
+}
   onAppClicked(app: AppDefinitionRepresentationModel) {
     console.log("process app id  - >", app.id)
     this.router.navigate(['/activiti/apps', app.id,'processes','101']);

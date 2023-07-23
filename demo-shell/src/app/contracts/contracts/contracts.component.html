@@ -11,25 +11,58 @@
   
   </mat-tab>
   
-  <mat-tab label="CREATE CONTRACT">
+  <mat-tab label="CONTRACT TOOLS">
+    <mat-accordion>
+      <!-- #docregion basic-panel -->
+      <!-- #docregion hide-toggle -->
+        <mat-expansion-panel>
+      <!-- #enddocregion hide-toggle -->
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              APA APPS
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="formwrapper" [class.mat-elevation-z8]="true">
+            <div> <!-- form fields-->
+              <input type="text" id="first_name" name="first_name" [(ngModel)]="first_name">
+            </div>
+        <h3> {{first_name}}</h3>
+         
+        <button type="button" (click)="setValue()">Submit</button>
+        </div>
+        </mat-expansion-panel>
+      <!-- #enddocregion basic-panel -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              ADF APPS
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <h1>ADF APPS</h1>
+<adf-apps (appClick)="onAppClicked($event)"></adf-apps>
 
-    <adf-apps (appClick)="onAppClicked($event)"
-    [filtersAppId]="[ 
-        {name : 'Invoice Processing'}]"
-    ></adf-apps>
+        </mat-expansion-panel>
+      </mat-accordion>
 
+
+<!-- [filtersAppId]="[{name : 'Invoice Processing'}]" -->
   </mat-tab>
   
   <mat-tab label="UTILS">
 
+
     <adf-breadcrumb root="APP.PERSONAL-FILES" [target]="documentList" [folderNode]="documentList.folderNode">
     </adf-breadcrumb>
     <adf-document-list 
-            #documentList      
-            [currentFolderId]="'3970f37d-018c-46f1-b3ee-d276fb4665ad'"
+          #documentList      
+          [currentFolderId]=""
           [contextMenuActions]="true"
           [contentActions]="true"
-          [maxItems]="30"
+          [maxItems]="5"
           [locationFormat]="//files"
           [selectionMode]="null"
           (preview)="showFile($event)"
@@ -40,9 +73,3 @@
   </mat-tab>
 </mat-tab-group>
 
-
-<!-- <h1>CONTRACT VIEW</h1>
-
-
-
- -->
