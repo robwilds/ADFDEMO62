@@ -8,7 +8,7 @@ import { SearchForm, SearchQueryBuilderService } from '@alfresco/adf-content-ser
 import { AppDefinitionRepresentationModel } from '@alfresco/adf-process-services';
 import { Router } from '@angular/router';
 import {  FormBuilder, FormGroup } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+//import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'contracts',
@@ -16,18 +16,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./contracts.component.css']
 })
 export class ContractsComponent implements OnInit {
-  
+
   panelOpenState = false;
 
   public userForm:FormGroup; // variable is created of type FormGroup is created
-  
+
   first_name: string = ""; // Variable is created to show the input value below the button
 
 
   @ViewChild(FileViewComponent) fileViewComponent;
 
   @ViewChild(BreadcrumbDemoComponent) breadCrumbComponent;
-  
+
   @ViewChild(SearchFilterChipsComponent) search:SearchFilterChipsComponent;
 
   constructor(private queryBuilder: SearchQueryBuilderService, private router: Router, private fb: FormBuilder) {
